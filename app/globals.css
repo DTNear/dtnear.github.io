@@ -1,0 +1,260 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply bg-skin-base text-skin-dark;
+    @apply bg-skin-base
+  }
+  a,
+  button {
+    @apply.outline-color: #53CAB5; {
+      outline-color: #53CAB5;
+  };
+  }
+
+  [data-state="open"] > .dropdown-caret {
+    @apply -rotate-180;
+  }
+  .nav-menu-dropdown:has(> [data-state="open"]) {
+    @apply after:w-full after:opacity-100;
+  }
+  [data-state="open"] > .plus-icon {
+    @apply hidden;
+  }
+  [data-state="closed"] > .minus-icon {
+    @apply hidden;
+  }
+  .main-navigation > div:last-child {
+    @apply flex basis-1/3 justify-end;
+  }
+
+  .shipping-options > div:has(button[data-state="checked"]) {
+    @apply outline outline-skin-accent-dark;
+  }
+
+  .book-desc p {
+    @apply my-2;
+  }
+
+  /* Hide Scrollbar on Cart Dropdown */
+  .cart-dropdown div::-webkit-scrollbar {
+    display: none;
+  }
+  .cart-dropdown div {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  /* Scrollbar for Wishlist */
+  .wishlist-table::-webkit-scrollbar {
+    width: 10px;
+  }
+  .wishlist-table::-webkit-scrollbar-track {
+    @apply bg-skin-base;
+  }
+  .wishlist-table::-webkit-scrollbar-thumb {
+    @apply bg-skin-dark bg-opacity-10;
+  }
+  .wishlist-table::-webkit-scrollbar-thumb:hover {
+    @apply bg-skin-dark bg-opacity-30;
+  }
+}
+
+@layer utilities {
+  .padding-x {
+    @apply px-4 md:px-8;
+  }
+  .max-width {
+    @apply mx-auto max-w-6xl;
+  }
+  .main-container {
+    @apply mx-auto w-full max-w-6xl px-4 py-6 md:px-8;
+  }
+
+  .success {
+    @apply border-teal-500 stroke-teal-500 text-teal-500;
+  }
+  .info {
+    @apply border-cyan-500 text-cyan-500;
+  }
+  .warning {
+    @apply border-amber-500 text-amber-500;
+  }
+  .error {
+    @apply border-rose-600 stroke-rose-600 text-rose-600;
+  }
+}
+
+@layer components {
+  .primary-btn-color {
+    @apply bg-skin-dark text-skin-base 
+    focus-within:bg-opacity-90 focus-within:text-skin-accent 
+    hover:bg-opacity-80 active:bg-opacity-90;
+  }
+  .outline-btn-color {
+    @apply border border-skin-dark text-skin-dark hover:bg-skin-muted;
+  }
+  .disabled-btn {
+    @apply cursor-not-allowed !bg-opacity-70 !text-skin-base;
+  }
+  .text-link {
+    @apply text-skin-dark underline decoration-dashed decoration-from-font underline-offset-2 opacity-80 hover:decoration-solid hover:opacity-100;
+  }
+  .cards-container {
+    @apply my-4 grid grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-3 md:grid-cols-4 md:gap-x-6 lg:grid-cols-5;
+  }
+  .nav-menu-dropdown {
+    @apply after:block after:w-0 after:border after:border-skin-accent after:opacity-0 after:transition-all after:duration-300 after:ease-out;
+  }
+  .nav-menu {
+    @apply nav-menu-dropdown after:hover:w-full after:hover:opacity-100;
+  }
+}
+
+/*carousel animation*/
+
+.carousel-control.right,
+.carousel-control.left {
+  -webkit-transition: all 300ms linear;
+  -moz-transition: all 300ms linear;
+  -o-transition: all 300ms linear;
+  -ms-transition: all 300ms linear;
+  transition: all 300ms linear;
+}
+
+.carousel-control {
+  background-color: #f5593d;
+  border-radius: 50%;
+  opacity: 1;
+  text-shadow: none;
+}
+.carousel-control:hover,
+.carousel-control:focus {
+  opacity: 1;
+  background-color: #f33816;
+}
+
+.carousel-control.left {
+  height: 30px;
+  top: 50%;
+  width: 30px;
+  left: 25px;
+  opacity: 0;
+}
+
+.carousel-control.right {
+  height: 30px;
+  right: 25px;
+  top: 50%;
+  width: 30px;
+  opacity: 0;
+}
+
+.carousel-control .icon-prev,
+.carousel-control .icon-next,
+.carousel-control .fa,
+.carousel-control .fa {
+  display: inline-block;
+  z-index: 5;
+}
+
+.carousel-control .fa {
+  font-size: 26px;
+  margin: 2px;
+}
+
+.carousel-control.left,
+.carousel-control.right {
+  background-image: none;
+}
+
+.page-carousel {
+  border-radius: 12px !important;
+  border: none !important;
+  width: 100%;
+}
+
+.carousel-inner > .carousel-item > img,
+.carousel-inner > .carousel-item > a > img {
+  border-radius: 12px;
+  box-shadow: 0 2px 2px rgba(204, 197, 185, 0.5);
+}
+
+.carousel-inner .carousel-item img {
+  width: 100%;
+}
+
+.carousel-indicators > li {
+  background-color: rgba(204, 204, 204, 0.49);
+  border: 0 none;
+}
+
+.carousel-indicators .active {
+  background-color: #f5593d;
+}
+
+.page-carousel:hover .carousel-control.right,
+.page-carousel:hover .carousel-control.left {
+  opacity: 1;
+  z-index: 1;
+}
+
+.card .carousel .carousel-indicators {
+  bottom: 0;
+}
+
+.card .carousel a {
+  position: absolute;
+  color: #ffffff !important;
+}
+.card .carousel a:hover {
+  color: #ffffff !important;
+}
+.card .carousel a .fa-angle-left:before {
+  padding-right: 3px;
+}
+.card .carousel a .fa-angle-right:before {
+  padding-left: 3px;
+}
+
+.card.page-carousel:hover,
+.carousel-caption .title,
+.carousel-caption .info-title {
+  color: #ffffff;
+}
+.page-carousel .carousel-inner [class*="col-md"] {
+  margin-left: 0 !important;
+}
+.page-carousel .right.carousel-control {
+  margin-right: 0 !important;
+}
+.page-carousel .left.carousel-control {
+  margin-left: 0 !important;
+}
+
+/*Typewriter*/
+.main-name {
+  color: green;
+}
+
+.heading-name {
+  display: float; 
+  flex: 1; 
+  color: red;
+}
+
+.buttonStyle {
+  width: '100px';
+  margin: '5px';
+  height: '38px';
+  display: 'flex';
+  alignItems: "center";
+  justifyContent: "left";
+}
+
+
