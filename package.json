@@ -1,6 +1,6 @@
 {
-  "homepage": "",
-  "name": "i-c2",
+  "homepage": "https://github.com/DTNear/italia-cristiana.git",
+  "name": "italia-cristiana",
   "version": "0.1.0",
   "private": true,
   "scripts": {
